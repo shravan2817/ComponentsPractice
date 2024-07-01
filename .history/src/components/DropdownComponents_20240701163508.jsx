@@ -13,7 +13,7 @@ const DropdownComponents = () => {
       .get("http://172.17.206.31:6969/demo/getMandal/" + e)
       .then((Mandalres) => {
         console.log(Mandalres?.data?.ResponseDesc);
-        setMandals(Mandalres?.data?.ResponseDesc);
+        setMandals(MandalRes?.data?.ResponseDesc);
       });
   }
 

@@ -5,27 +5,40 @@ import AboutPage from './components/AboutPage'
 import UserPage from './components/UserPage';
 import DropdownComponents from './components/DropdownComponents';
 import TableComponents from './components/TableComponents';
-
+import { configureStore } from '@reduxjs/toolkit';
+ import {Provider} from 'react-redux'
 const App = () => {
+
+
+  let store = configureStore({
+    reducer: {
+      // reducer: BasicReducer
+    }
+  })
   return (
     <div>
-      <nav>
+      {/* <nav>
         <ul>
-          {/* <li><Link to="/">Home</Link></li>
+          <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
-          <li><Link to="/users">Users</Link></li> */}
+          <li><Link to="/users">Users</Link></li>
           <HomePages/>
-          {/* <TableComponents  />
-          <DropdownComponents/> */}
+          <TableComponents  />
+          <DropdownComponents/>
         </ul>
-      </nav>
-      {/* <Router>
+      </nav> */}
+      <Provider store = {store}>
+      <Router>
       <Routes>
         <Route path="/" element={<HomePages/>}/>
         <Route path="/about" element={<AboutPage/>}/>
         <Route path="/users" element={<UserPage/>}/>
+        <Route path="/TableComponents" element={<TableComponents/>}/>
+        <Route path="/DropdownComponents" element={<DropdownComponents/>}/>
       </Routes>
-      </Router> */}
+      </Router>
+      </Provider>
+     
       
     </div>
   )

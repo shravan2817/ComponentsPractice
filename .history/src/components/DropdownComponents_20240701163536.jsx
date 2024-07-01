@@ -13,7 +13,7 @@ const DropdownComponents = () => {
       .get("http://172.17.206.31:6969/demo/getMandal/" + e)
       .then((Mandalres) => {
         console.log(Mandalres?.data?.ResponseDesc);
-        setMandals(Mandalres?.data?.ResponseDesc);
+        setMandals(MandalRes?.data?.ResponseDesc);
       });
   }
 
@@ -57,11 +57,12 @@ const DropdownComponents = () => {
       </select>
       <select>
         <option value="">Select</option>
-        {mandals?.map((option) => (
-          <option key={option.mandal_code} value={option.mandal_code}>
-            {option.mandal_name}
-          </option>
-        ))}
+        {mandals &&
+          mandals?.map((option) => (
+            <option key={option.mandal_code} value={option.mandal_code}>
+              {option.mandal_name}
+            </option>
+          ))}
       </select>
     </>
   );
