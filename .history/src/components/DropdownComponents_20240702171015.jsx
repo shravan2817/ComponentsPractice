@@ -26,8 +26,8 @@ const DropdownComponents = () => {
   function SavedData() {
     console.log();
     axios.get("http://172.17.206.31:6969/demo/savedData").then((SavedData) => {
-      console.log(SavedData?.data?.ResponseDesc);
-      setSavedData(SavedData?.data?.ResponseDesc);
+      console.log(SavedData);
+      // setSavedData(SavedData?.data?.ResponseDesc);
     });
   }
   const handleChange = (e) => {
@@ -63,16 +63,7 @@ const DropdownComponents = () => {
             <th>mandal_code</th>
           </tr>
         </thead>
-        <tbody>
-          {savedData.map((Savedd, i) => (
-            <tr>
-              <td>{i + 1}</td>
-              <td>{Savedd.district_name}</td>
-              <td>{Savedd.villagename}</td>
-              <td>{Savedd.mandal_name}</td>
-            </tr>
-          ))}
-        </tbody>
+        <tbody>{Response}</tbody>
       </table>
     </>
   );

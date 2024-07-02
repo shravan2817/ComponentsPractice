@@ -12,7 +12,6 @@ const DropdownComponents = () => {
         console.log(Response.data.ResponseDesc);
         setDistricts(Response.data.ResponseDesc);
       });
-    SavedData();
   }, []);
   function MandalRes(e) {
     console.log(e);
@@ -22,14 +21,16 @@ const DropdownComponents = () => {
         console.log(Mandalres?.data?.ResponseDesc);
         setMandals(Mandalres?.data?.ResponseDesc);
       });
+     
   }
   function SavedData() {
     console.log();
-    axios.get("http://172.17.206.31:6969/demo/savedData").then((SavedData) => {
-      console.log(SavedData?.data?.ResponseDesc);
-      setSavedData(SavedData?.data?.ResponseDesc);
-    });
-  }
+    axios
+      .get("http://172.17.206.31:6969/demo/savedData")
+      .then((SavedData) => {
+        console.log(SavedData?.data?.ResponseDesc);
+        // setSavedData(SavedData?.data?.ResponseDesc);
+      });
   const handleChange = (e) => {
     // setSelectedOption(e);
     setDistricts(e);
@@ -63,19 +64,10 @@ const DropdownComponents = () => {
             <th>mandal_code</th>
           </tr>
         </thead>
-        <tbody>
-          {savedData.map((Savedd, i) => (
-            <tr>
-              <td>{i + 1}</td>
-              <td>{Savedd.district_name}</td>
-              <td>{Savedd.villagename}</td>
-              <td>{Savedd.mandal_name}</td>
-            </tr>
-          ))}
-        </tbody>
+        <tbody>{Response}</tbody>
       </table>
     </>
   );
 };
 
-export default DropdownComponents;
+export default DropdownComponents

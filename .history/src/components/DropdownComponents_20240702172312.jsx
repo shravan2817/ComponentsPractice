@@ -64,7 +64,7 @@ const DropdownComponents = () => {
           </tr>
         </thead>
         <tbody>
-          {savedData.map((Savedd, i) => (
+          {SavedData.map((Savedd, i) => (
             <tr>
               <td>{i + 1}</td>
               <td>{Savedd.district_name}</td>
